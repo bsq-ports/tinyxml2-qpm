@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/Lauriethefish/QuestPatcher.QMod/main/QuestPatcher.QMod/Resources/qmod.schema.json",
   "_QPVersion": "1.1.0",
-  "name": "${mod_name}",
+  "name": "tinyxml2",
   "id": "${mod_id}",
   "author": "leethompson",
   "porter": "Millzy",
@@ -10,9 +10,10 @@
   "packageId": "com.beatgames.beatsaber",
   "packageVersion": "1.29.0_4466478251",
   "description": "${mod_id}",
+  "isLibrary": true,
   "dependencies": [],
   "modFiles": [],
-  "libraryFiles": [],
+  "libraryFiles": ["libtinyxml2.so"],
   "fileCopies": [],
   "copyExtensions": []
 }

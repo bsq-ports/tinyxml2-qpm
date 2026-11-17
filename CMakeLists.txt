@@ -1,5 +1,5 @@
-# include some defines automatically made by qpm
-include(qpm_defines.cmake)
+# Read package and Android toolchain settings.
+include(cmake/quest.cmake)
 
 # override mod id
 set(MOD_ID "tinyxml2")
@@ -31,8 +31,8 @@ add_compile_definitions(ID=\"${MOD_ID}\")
 add_compile_definitions(MOD_ID=\"${MOD_ID}\")
 
 # recursively get all src files
-RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
-RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
+file(GLOB_RECURSE cpp_file_list ${SOURCE_DIR}/*.cpp)
+file(GLOB_RECURSE c_file_list ${SOURCE_DIR}/*.c)
 
 # add all src files to compile
 add_library(
@@ -54,8 +54,6 @@ target_include_directories(${COMPILE_ID} PUBLIC ${SHARED_DIR})
 target_include_directories(${COMPILE_ID} PRIVATE ${EXTERN_DIR}/includes/${CODEGEN_ID}/include)
 
 target_link_libraries(${COMPILE_ID} PRIVATE -llog)
-# add extern stuff like libs and other includes
-include(extern.cmake)
 
 add_custom_command(TARGET ${COMPILE_ID} POST_BUILD
         COMMAND ${CMAKE_STRIP} -d --strip-all

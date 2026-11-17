@@ -1,0 +1,44 @@
+{
+  "$schema": "https://raw.githubusercontent.com/QuestPackageManager/QPM.Package/refs/heads/main/qpm.shared.schema.json",
+  "config": {
+    "configVersion": "2.0.0",
+    "id": "tinyxml2",
+    "version": "10.0.0",
+    "additionalData": {
+      "description": "",
+      "author": "",
+      "license": "",
+      "url": "https://github.com/bsq-ports/tinyxml2-qpm"
+    },
+    "workspace": {
+      "scripts": {
+        "build": [
+          "pwsh ./build.ps1",
+          "cmake -E make_directory extern/build/build",
+          "cmake -E copy_if_different build/libtinyxml2.so extern/build/build/libtinyxml2.so"
+        ]
+      },
+      "ndk": "^29.0.0",
+      "outBinaries": [
+        "build/libtinyxml2.so"
+      ],
+      "toolchainOut": "toolchain.json",
+      "cmake": false
+    },
+    "qmod": {
+      "output": "tinyxml2.qmod",
+      "template": "mod.template.json",
+      "searchDirs": [
+        "build"
+      ],
+      "includeFiles": [],
+      "id": "tinyxml2"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "dependenciesDirectory": "extern",
+    "sharedDirectory": "shared"
+  },
+  "restoredDependencies": {},
+  "env": {}
+}

@@ -64,3 +64,8 @@ extern.cmake
 
 # QMOD Schema
 mod.json.schema
+
+# QPM2 local outputs
+qpm.settings.json
+toolchain.json
+*.qpkg

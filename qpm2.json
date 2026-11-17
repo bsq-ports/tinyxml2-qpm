@@ -1,0 +1,35 @@
+{
+  "configVersion": "2.0.0",
+  "id": "tinyxml2",
+  "version": "10.0.0",
+  "additionalData": {
+    "url": "https://github.com/bsq-ports/tinyxml2-qpm"
+  },
+  "workspace": {
+    "ndk": "^29.0.0",
+    "outBinaries": [
+      "build/libtinyxml2.so"
+    ],
+    "toolchainOut": "toolchain.json",
+    "cmake": false,
+    "scripts": {
+      "build": [
+        "pwsh ./build.ps1",
+        "cmake -E make_directory extern/build/build",
+        "cmake -E copy_if_different build/libtinyxml2.so extern/build/build/libtinyxml2.so"
+      ]
+    }
+  },
+  "qmod": {
+    "id": "tinyxml2",
+    "template": "mod.template.json",
+    "output": "tinyxml2.qmod",
+    "searchDirs": [
+      "build"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "dependenciesDirectory": "extern",
+  "sharedDirectory": "shared"
+}
