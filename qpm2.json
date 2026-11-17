@@ -10,6 +10,7 @@
     "outBinaries": [
       "build/libtinyxml2.so"
     ],
+    "outBinary": "build/libtinyxml2.so",
     "toolchainOut": "toolchain.json",
     "cmake": false,
     "scripts": {
