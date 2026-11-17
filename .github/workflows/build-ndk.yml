@@ -3,32 +3,19 @@ name: NDK build
 on:
   workflow_dispatch:
   push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - '**.yml'
-      - '!.github/workflows/build-ndk.yml'
-      - '**.json'
-      - '!qpm2.json'
-      - '!qpm2.shared.json'
-      - '!mod.template.json'
-      - '**.txt'
-      - '!CMakeLists.txt'
-      - '**.ps1'
-      - '!build.ps1'
-      - '!createqmod.ps1'
-      - '**.md'
-      - '.gitignore'
+    branches: ['**']
   pull_request:
-    branches: main
 
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: seanmiddleditch/gha-setup-ninja@v3
+        with:
+          persist-credentials: false
       - uses: Fernthedev/qpm-action@v2
       - name: Build and package
         run: qpm2 qpkg
