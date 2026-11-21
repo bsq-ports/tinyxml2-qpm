@@ -8,7 +8,6 @@
   "modloader": "Scotland2",
   "version": "${version}",
   "packageId": "com.beatgames.beatsaber",
-  "packageVersion": "1.29.0_4466478251",
   "description": "${mod_id}",
   "isLibrary": true,
   "dependencies": [],

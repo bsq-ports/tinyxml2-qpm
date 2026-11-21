@@ -19,7 +19,9 @@
         ]
       },
       "ndk": "^29.0.0",
-      "outBinary": "build/libtinyxml2.so",
+      "outBinaries": [
+        "build/libtinyxml2.so"
+      ],
       "toolchainOut": "toolchain.json",
       "cmake": false
     },
@@ -35,7 +37,12 @@
     "dependencies": {},
     "devDependencies": {},
     "dependenciesDirectory": "extern",
-    "sharedDirectory": "shared"
+    "sharedDirectory": "shared",
+    "compileOptions": {
+      "includePaths": [
+        ""
+      ]
+    }
   },
   "restoredDependencies": {},
   "env": {}
